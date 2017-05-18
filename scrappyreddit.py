@@ -1,16 +1,16 @@
 import praw
-import secret
 import random
 import time
+import os
 
 
 def bot_loggin():
     "This function return your session in Reddit as an instance"
-    reddit = praw.Reddit(username=secret.username,
-                         password=secret.password,
-                         client_id=secret.client_id,
-                         client_secret=secret.client_secret,
-                         user_agent=secret.user_agent)
+    reddit = praw.Reddit(username=os.environ['REDDIT_USERNAME'],
+                         password=os.environ['REDDIT_PASSWORD'],
+                         client_id=os.environ['REDDIT_SECRET_CLIENT_ID'],
+                         client_secret=os.environ['REDDIT_SECRET_CLIENT_SECRET'],
+                         user_agent=os.environ['REDDIT_SECRET_USER_AGENT'])
     return reddit
 
 
