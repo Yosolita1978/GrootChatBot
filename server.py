@@ -136,7 +136,7 @@ def fb_webhook():
                                                                      'payload': {'url': url_sticker}}}})
                 if response.status_code != 200:
                     print response.text
-                    
+
             if not 'text' in message:
                 continue
 
@@ -164,5 +164,8 @@ def fb_webhook():
     return ''
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    
+    PORT = int(os.environ.get("PORT", 5000))
+
+    app.run(host="0.0.0.0", port=PORT)
 
