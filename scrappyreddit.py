@@ -39,9 +39,16 @@ if __name__ == '__main__':
     picture_day = random_url(list_urls)
     
     while True:
+        number_pictures = len(list_urls)
+        if number_pictures == 1:
+            print "This is my last wholosome picture for you"
+            last_one = list_urls[-1]
+            webbrowser.open(last_one)
+            break
+
         ask_user = raw_input("Are you having a bad day? Y or N ?")
         if ask_user == "Y":
-            number_pictures = len(list_urls)
+            
             print "I have %i wholosome pictures to cheer you up" % (number_pictures)
             check = raw_input("Do you want a wholosome picture? Y or N ?")
             if check == "Y":
