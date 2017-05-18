@@ -107,8 +107,6 @@ def fb_webhook():
 
     # Get the request body as a dict, parsed from JSON.
     payload = flask.request.json
-    print payload
-
 
     # Handle an incoming message.
     for entry in payload['entry']:
@@ -125,8 +123,7 @@ def fb_webhook():
                 sender_id = event['sender']['id']
                 sticker_id = message["sticker_id"]
                 url_sticker = message["attachments"][0]["payload"]["url"]
-                print sticker_id
-                print url_sticker
+
 
                 request_url = FACEBOOK_API_MESSAGE_SEND_URL % (app.config['FACEBOOK_PAGE_ACCESS_TOKEN'])
                 response = requests.post(request_url,
