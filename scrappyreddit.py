@@ -1,7 +1,6 @@
 import praw
 import secret
 import random
-import webbrowser
 import time
 
 
@@ -31,6 +30,8 @@ def random_url(lst):
 
 
 if __name__ == '__main__':
+
+    import webbrowser
 
     reddit = bot_loggin()
     if not reddit.read_only:
