@@ -43,6 +43,7 @@ def handle_message(message, sender_id):
     #First query for the user that is taking to the bot
     user = User.query.filter(User.facebook_id == sender_id).first()
 
+    #If there is no user it means that is the first time that the user speaks with Groot. 
     if not user:
         user = User(facebook_id=sender_id)
         db.session.add(user)

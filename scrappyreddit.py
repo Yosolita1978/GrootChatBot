@@ -15,7 +15,7 @@ def bot_loggin():
 
 
 def get_imgs_bot(reddit):
-
+    "This function returns a list with the first most populars images in the subreddit /wholesomememes"
     jpg_url = []
     for submission in reddit.subreddit('wholesomememes').hot(limit=20):
         if submission.url.endswith(".jpg"):
@@ -25,6 +25,7 @@ def get_imgs_bot(reddit):
 
 
 def random_url(lst):
+    "This function return a random choice from the list of popular images of the wholesomememes subreddit"
     day_url = random.choice(lst)
     return day_url
 
@@ -38,7 +39,7 @@ if __name__ == '__main__':
         print "Logged to Reddit!!"
     list_urls = get_imgs_bot(reddit)
     picture_day = random_url(list_urls)
-    
+
     while True:
         number_pictures = len(list_urls)
         if number_pictures == 1:
@@ -48,8 +49,7 @@ if __name__ == '__main__':
             break
 
         ask_user = raw_input("Are you having a bad day? Y or N ?")
-        if ask_user == "Y":
-            
+        if ask_user == "Y":     
             print "I have %i wholosome pictures to cheer you up" % (number_pictures)
             check = raw_input("Do you want a wholosome picture? Y or N ?")
             if check == "Y":
